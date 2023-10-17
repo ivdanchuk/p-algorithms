@@ -1,2 +1,1 @@
-# p-algorithms
-Searching and sorting algorithms
+Insertion Sort in Python
