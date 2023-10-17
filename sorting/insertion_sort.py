@@ -3,7 +3,7 @@ import logging
 from array import array
 
 
-def insertion_sort_implementation1(numbers):
+def insertion_sort(numbers):
     logging.info("Sorting input array %s", numbers)
     sorted_numbers = copy.copy(numbers)
     # unsorted = [8, 4, 3, 1, 5, 2]
@@ -38,4 +38,24 @@ def insertion_sort_implementation1(numbers):
             logging.info("Current sorted array %s", sorted_numbers)
 
     logging.info("Sorted array %s", sorted_numbers)
+    return sorted_numbers
+
+
+def insertion_sort_optimized(numbers):
+    logging.info("Sorting input array %s", numbers)
+    sorted_numbers = copy.copy(numbers)
+
+    # i=4 unsorted = {1, 3, 3, 5, 8, 2}
+    for i in range(1, len(sorted_numbers)):
+        current = sorted_numbers[i]
+        j = i - 1
+
+        if current < sorted_numbers[j]:
+            while (j >= 0) and (sorted_numbers[j] > current):
+                sorted_numbers[j + 1] = sorted_numbers[j]
+                j = j - 1
+            sorted_numbers[j + 1] = current
+
+            logging.info("Sorted array %s", sorted_numbers)
+
     return sorted_numbers

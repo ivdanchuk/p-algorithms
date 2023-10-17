@@ -1,30 +1,51 @@
 import logging
 import unittest
 
-from sorting.insertion_sort import insertion_sort_implementation1
+from sorting.insertion_sort import insertion_sort, insertion_sort_optimized
 
 
 class TestInsertingSort(unittest.TestCase):
 
-    def test_should_sort1(self):
+    def test_should_sort_array(self):
         unsorted_input = [8, 4, 3, 1, 5, 2]
-        sorted_input = insertion_sort_implementation1(unsorted_input)
+        sorted_input = insertion_sort(unsorted_input)
         self.assertEqual(sorted_input, [1, 2, 3, 4, 5, 8])
 
-    def test_should_sort2(self):
+    def test_should_sort_array_of_two(self):
         unsorted_input = [8, 4]
-        sorted_input = insertion_sort_implementation1(unsorted_input)
+        sorted_input = insertion_sort(unsorted_input)
         self.assertEqual(sorted_input, [4, 8])
 
-    def test_should_sort3(self):
+    def test_should_sort_array_of_one(self):
         unsorted_input = [8]
-        sorted_input = insertion_sort_implementation1(unsorted_input)
+        sorted_input = insertion_sort(unsorted_input)
         self.assertEqual(sorted_input, [8])
 
-    def test_should_sort4(self):
+    def test_should_sort_empty(self):
         unsorted_input = []
-        sorted_input = insertion_sort_implementation1(unsorted_input)
+        sorted_input = insertion_sort(unsorted_input)
         self.assertEqual(sorted_input, [])
+
+    def test_should_sort_opt_array(self):
+        unsorted_input = [8, 4, 3, 1, 5, 2]
+        sorted_input = insertion_sort_optimized(unsorted_input)
+        self.assertEqual(sorted_input, [1, 2, 3, 4, 5, 8])
+
+    def test_should_sort_opt_array_of_one(self):
+        unsorted_input = [8]
+        sorted_input = insertion_sort_optimized(unsorted_input)
+        self.assertEqual(sorted_input, [8])
+
+    def test_should_sort_opt_array_of_two(self):
+        unsorted_input = [8, 4]
+        sorted_input = insertion_sort_optimized(unsorted_input)
+        self.assertEqual(sorted_input, [4, 8])
+
+    def test_should_sort_opt_empty(self):
+        unsorted_input = []
+        sorted_input = insertion_sort_optimized(unsorted_input)
+        self.assertEqual(sorted_input, [])
+
 
 if __name__ == '__main__':
     unittest.main()
