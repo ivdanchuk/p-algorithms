@@ -44,8 +44,6 @@ def insertion_sort(numbers):
 def insertion_sort_optimized(numbers):
     logging.info("Sorting input array %s", numbers)
     sorted_numbers = copy.copy(numbers)
-
-    # i=4 unsorted = {1, 3, 3, 5, 8, 2}
     for i in range(1, len(sorted_numbers)):
         current = sorted_numbers[i]
         j = i - 1
