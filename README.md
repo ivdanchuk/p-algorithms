@@ -1,57 +1,57 @@
-# Insertion Sort Optimized
+# Binary Search and Insertion Sort Functions
 
-"insertion_sort_optimized" is a Python implementation of the insertion sort algorithm, which sorts an unsorted list of numbers in an ascending order. 
+This is a Python implementation of two common algorithms: Binary search and Insertion sort.
+
+## Binary Search
+
+The `search()` function takes a sorted array `numbers` and a `number` as input and returns the index of the specified number in the array, or `-1` if the number is not present.
+
+The function first determines if the input array is sorted in ascending order and then performs the binary search as appropriate.
+
+```python
+def search(numbers, number):
+    ...
+```
+
+## Insertion Sort
+
+The `sort()` function takes an array `numbers` as input and returns a sorted copy of the array using the Insertion sort algorithm. The input array is not modified.
+
+This insertion sort implementation is stable, meaning that the input order of equal elements is preserved in the output.
+
+```python
+def sort(numbers):
+    ...
+```
 
 ## Usage
 
-```python
-from insertion_sort_optimized import insertion_sort_optimized
-
-numbers = [6, 2, 8, 5, 3, 1]
-sorted_numbers = insertion_sort_optimized(numbers)
-
-print(sorted_numbers)
-```
-
-## Output
-
-```
-[1, 2, 3, 5, 6, 8]
-```
-
-## Functions
-
-### insertion_sort_optimized(numbers: List[int]) -> List[int]
-
-The function takes a list of integers and returns a new list containing the input values sorted in ascending order.
-
-**Parameters**:
-
-- `numbers` (List[int]): The input list of integers to be sorted.
-
-**Returns**:
-
-- A new list (List[int]) containing the input values sorted in ascending order.
-
-**Example**:
+To use these algorithms, simply import the functions and apply them to your data.
 
 ```python
-sorted_numbers = insertion_sort_optimized([64, 34, 25, 12, 22, 11, 90])
-print(sorted_numbers)  # Output: [11, 12, 22, 25, 34, 64, 90]
+from binary_search_and_insertion_sort import search, sort
+
+# Example array and number to find
+numbers = [3, 9, 12, 15, 20, 21, 24, 35, 43]
+number = 43
+
+# Find the index of the number using binary search
+index = search(numbers, number)
+print(f"The index of {number} in the array is: {index}")
+
+# Sort the array using insertion sort
+sorted_numbers = sort(numbers)
+print(f"Sorted array: {sorted_numbers}")
 ```
 
 ## Logging
 
-The function logs information about each step in the sorting process. To enable/disable logging, you can configure the logging settings as per your requirements.
+The functions include logging statements that can be useful for debugging. To enable logging, add the following code to your script:
 
-## Dependencies
+```python
+import logging
 
-This implementation has no external dependencies. It uses built-in Python libraries "copy" and "logging".
+logging.basicConfig(level=logging.DEBUG)
+```
 
-## Performance
-
-The worst-case and average case time complexity of this algorithm is O(N^2), where N is the number of elements in the input list. The best-case time complexity is O(N), which occurs when the input list is already sorted.
-
-## License
-
-This implementation is available under the [MIT License](https://opensource.org/licenses/MIT).
+This will output logging messages from the functions to the console while running. You can adjust the logging level to suit your needs. For example, change `level=logging.DEBUG` to `level=logging.INFO` to only show information messages.
